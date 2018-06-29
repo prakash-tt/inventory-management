@@ -36,3 +36,12 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'activerecord-import', '0.7.0'
+gem 'mysql2',  '0.3.18'
+gem 'bcrypt-ruby',  '3.0.0'
+
+
+group :development, :test do
+  gem 'test-unit', '3.2.3'
+end

@@ -1,4 +1,13 @@
 InventoryManagement::Application.routes.draw do
+
+  get "/", to: "sessions#new"
+  post "/", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  get "/register", to: "users#new"
+  resources :users
+
+  root to:"sessions#new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
