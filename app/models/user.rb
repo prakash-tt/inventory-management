@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   before_save {email.downcase!}
 
   validates :name, presence: true, length: {:minimum => 2, :maximum => 50}
+
+  has_many :posts
 end
