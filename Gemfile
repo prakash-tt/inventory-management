@@ -41,6 +41,7 @@ gem 'activerecord-import', '0.7.0'
 gem 'mysql2',  '0.3.18'
 gem 'bcrypt-ruby',  '3.0.0'
 gem 'devise', '3.5.10'
+gem 'cancan', '1.6.10'
 
 
 group :development, :test do
