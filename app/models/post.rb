@@ -4,4 +4,5 @@ class Post < ActiveRecord::Base
   validates :description, presence: true, length: {:minimum => 10}
 
   belongs_to :user
+  has_many :comments
 end
