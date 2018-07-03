@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: {:minimum => 2, :maximum => 50}
 
-  has_many :posts, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+  has_many :posts, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
 end
