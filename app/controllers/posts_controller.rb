@@ -15,10 +15,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(title: params[:post][:title], description: params[:post][:description], user: current_user)
-    if @post.save
-      redirect_to profile_posts_path
-    else
-      render 'new'
+    respond_to do |format|
+      if @post.save
+        format.js {render partial: "post_create"}
+      else
+        # format.html { render :action => "new" }
+        format.js {render :action => "new"}
+      end
     end
   end
 
@@ -30,7 +33,10 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_id(params[:id])
     @post.destroy
-    redirect_to profile_posts_path
+    respond_to do |format|
+      # format.html { redirect_to profile_posts_path }
+      format.js   { render partial: "post_delete" }
+    end
   end
 
   def edit
@@ -39,10 +45,13 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by_id(params[:id])
-    if @post.update_attributes(params[:post])
-      redirect_to post_path(@post)
-    else
-      render 'edit'
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.js {render partial: "post_create"}
+      else
+        # format.html {render :action => "edit"}
+        format.js {render :action => "new"}
+      end
     end
   end
 

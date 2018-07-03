@@ -1,18 +1,14 @@
-<%= form_for(@post) do |f|  %>
-  <% if @post.errors.any? %>
-    <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  <% end %>
-
-  <div>
+<%= form_for(@post, :remote => true) do |f|  %>
+  <div id="post-title">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :required => true %>
+    <p id="title-error"></p>
   </div>
   <br>
-  <div>
+  <div id="post-description">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :required => true %>
+    <p id="description-error"></p>
   </div>
   <br>
   <div>

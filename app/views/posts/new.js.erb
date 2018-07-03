@@ -1,0 +1,6 @@
+<% if @post.errors.messages[:title] %>
+  $('#post-title #title-error').html('<p>Title <%= @post.errors.messages[:title][0] %></p>')
+<% end %>
+<% if @post.errors.messages[:description] %>
+$('#post-description #description-error').html('<p>Description <%= @post.errors.messages[:description][0] %></p>')
+<% end %>

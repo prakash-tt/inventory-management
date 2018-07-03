@@ -1,9 +1,9 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
+<%= form_for([@post, @post.comments.build], :remote => true) do |f| %>
+  <div id="comment-body-add">
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :required => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Comment", disable_with: "Submitting.." %>
   </div>
 <% end %>

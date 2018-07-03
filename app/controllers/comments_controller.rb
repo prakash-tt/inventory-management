@@ -7,14 +7,19 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     params[:comment][:user] = @current_user
     @comment = @post.comments.create(params[:comment])
-    redirect_to post_path(@post)
+    respond_to do |format|
+      format.js {render partial: "post_create"}
+    end
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    respond_to do |format|
+      # format.html { redirect_to post_path(@post) }
+      format.js   { render partial: "post_delete" }
+    end
   end
 
 end
