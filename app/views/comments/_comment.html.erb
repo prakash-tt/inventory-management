@@ -1,0 +1,14 @@
+<p>
+  <b>Commenter:</b>
+  <%= comment.user.name %>(<i><%= comment.user.email %></i>)
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
+
+<p>
+  <%= link_to 'Remove Comment', [comment.post, comment], :confirm => 'Are you sure?',
+              :method => :delete if user_signed_in? && (can? :destroy, comment) %>
+</p>

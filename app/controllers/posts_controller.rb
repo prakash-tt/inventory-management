@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def user_posts
-    @user_posts = Post.where(user_id: @current_user.id)
+    @user_posts = @current_user.posts
     render 'user_posts'
   end
 
