@@ -1,3 +1,4 @@
+<% if @posts.any? %>
 <h1>Recently added/updated blogs</h1>
 
 <table>
@@ -20,3 +21,6 @@
     </tr>
   <% end %>
 </table>
+<% else %>
+<i>No blogs posts exist..</i>
+<% end %>
