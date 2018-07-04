@@ -8,6 +8,7 @@ InventoryManagement::Application.routes.draw do
   get '/' => 'home#new'
   get 'profile/' => 'users#show'
   get 'profile/posts/' => 'posts#user_posts'
+
   root to:"home#new"
 
   # The priority is based upon order of creation:

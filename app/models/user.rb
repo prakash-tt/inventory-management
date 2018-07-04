@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     if self.confirmed_at_changed?
-      UserMailer.welcome_email(self).deliver!
+      UserMailer.delay.welcome_email(self.id)
     end
   end
 

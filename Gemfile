@@ -42,8 +42,10 @@ gem 'mysql2',  '0.3.18'
 gem 'bcrypt-ruby',  '3.0.0'
 gem 'devise', '3.5.10'
 gem 'cancan', '1.6.10'
+gem 'sidekiq', '4.2.1'
 
 
 group :development, :test do
   gem 'test-unit', '3.2.3'
+  gem 'byebug'
 end

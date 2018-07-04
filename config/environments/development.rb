@@ -46,4 +46,6 @@ InventoryManagement::Application.configure do
       password: "",
       authentication: 'plain'
   }
+
+  config.log_level = :debug
 end

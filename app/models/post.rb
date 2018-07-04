@@ -9,6 +9,6 @@ class Post < ActiveRecord::Base
   after_create :send_email_to_user
 
   def send_email_to_user
-    UserMailer.post_creation_email(self).deliver!
+    UserMailer.delay.post_creation_email(self.id)
   end
 end
