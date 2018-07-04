@@ -5,4 +5,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, :dependent => :delete_all
+
+  after_create :send_email_to_user
+
+  def send_email_to_user
+    UserMailer.delay.post_creation_email(self.id)
+  end
 end
