@@ -1,0 +1,26 @@
+<% if @posts.any? %>
+  <h1>Recently added/updated blogs</h1>
+
+  <table id="post-table">
+    <tr>
+      <td>
+        <b>Title</b>
+      </td>
+      <td>
+        <b>Updated Datetime</b>
+      </td>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr class="post-row">
+        <td>
+          <%= link_to post.title, post_path(post) %>
+        </td>
+        <td>
+          <%= post.updated_at %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <i>No blogs posts exist..</i>
+<% end %>

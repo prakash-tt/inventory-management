@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def post_creation_email(post_id)
-    @post = Post.find_by_id(post_id)
+    @post = Post.eager_load(:user).find_by_id(post_id)
     if @post.nil?
       mailer_logger.error "Post with id - #{post_id} doesn't exist"
     else

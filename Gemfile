@@ -43,6 +43,11 @@ gem 'bcrypt-ruby',  '3.0.0'
 gem 'devise', '3.5.10'
 gem 'cancan', '1.6.10'
 gem 'sidekiq', '4.2.1'
+gem 'elasticsearch', '1.0.18'
+gem 'elasticsearch-api', '1.0.18'
+gem 'elasticsearch-transport', '1.0.18'
+gem 'elasticsearch-rails', '0.1.8'
+gem 'elasticsearch-model', '0.1.8'
 
 
 group :development, :test do
