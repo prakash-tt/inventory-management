@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.eager_load(:comments).find_by_id(params[:id])
     raise ActionController::RoutingError.new('Not Found') if @post.blank?
   end
 
@@ -52,6 +52,13 @@ class PostsController < ApplicationController
         # format.html {render :action => "edit"}
         format.js {render :action => "new"}
       end
+    end
+  end
+
+  def search
+    @posts = Post.search(params[:search]).records
+    respond_to do |format|
+      format.js {render partial: "post_search"}
     end
   end
 

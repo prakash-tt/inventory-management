@@ -8,6 +8,7 @@ InventoryManagement::Application.routes.draw do
   get '/' => 'home#new'
   get 'profile/' => 'users#show'
   get 'profile/posts/' => 'posts#user_posts'
+  post '/search' => 'posts#search'
 
   root to:"home#new"
 

@@ -1,26 +1,9 @@
-<% if @posts.any? %>
-<h1>Recently added/updated blogs</h1>
-
-<table>
-  <tr>
-    <td>
-      <b>Title</b>
-    </td>
-    <td>
-      <b>Updated Datetime</b>
-    </td>
-  </tr>
-  <% @posts.each do |post| %>
-    <tr>
-      <td>
-        <%= link_to post.title, post_path(post) %>
-      </td>
-      <td>
-        <%= post.updated_at %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<% else %>
-<i>No blogs posts exist..</i>
+<%= form_tag(search_path, :remote => true, :id => 'search-form') do %>
+  <%= search_field_tag :search, params[:search], placeholder: "Search", required: true %>
+  <div>
+    <%= button_tag "Search" %>
+  </div>
 <% end %>
+<div id="posts-data">
+  <%= render 'posts_table', object: @posts %>
+</div>

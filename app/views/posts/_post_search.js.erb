@@ -1,0 +1,3 @@
+$('#search-form').bind('ajax:success', function() {
+    $('#posts-data').empty().append("<%= escape_javascript("#{render partial: 'home/posts_table'}").html_safe %>");
+});

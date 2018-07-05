@@ -58,5 +58,7 @@ module InventoryManagement
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.es = YAML.load_file("config/es.yml")[Rails.env].symbolize_keys
   end
 end
