@@ -1,8 +1,8 @@
 InventoryManagement::Application.routes.draw do
 
   devise_for :users
-  resources :posts do
-    resources :comments
+  resources :posts, :except => [:index] do
+    resources :comments, :only => [:create, :destroy]
   end
 
   get '/' => 'home#new'
