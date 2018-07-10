@@ -42,8 +42,8 @@ InventoryManagement::Application.configure do
       address: "smtp.gmail.com",
       domain: "gmail.com",
       port: 587,
-      user_name: "prakash.mishra@traveltriangle.com",
-      password: "",
+      user_name: "prakash.mishra.tt@gmail.com",
+      password: "!@#$%^&*()0987654321",
       authentication: 'plain'
   }
 
